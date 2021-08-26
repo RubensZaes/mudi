@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+	crossorigin="anonymous">
+<title>HOME</title>
+</head>
+<body>
+
+	<div class="container">
+		<div class="card" th:each="pedido : ${pedidos}">
+
+			<div class="card-header" th:text="${pedido.nomeProduto}">Nome
+				do Produto</div>
+
+			<div class="card-body">
+				<div class="row">
+					<div class="col-12 col-sm-8 mb-3">
+						<div class="row">
+							<div class="col-md-5">
+								Valor: <span th:text="${pedido.valorNegociado}"></span>
+							</div>
+							<div class="col-md-7">
+								Data da Entrega: <span th:text="${pedido.dataDaEntrega}"></span>
+							</div>
+						</div>
+
+						<div>Produto</div>
+						<div>
+							<input class="form-control" th:value="${pedido.urlProduto}"
+								value="Url do Produto"></input>
+						</div>
+
+						<div>Descrição</div>
+						<div>
+							<textarea class="form-control" th:text="${pedido.descricao}">Descrição do Pedido</textarea>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-4">
+						<div>
+							<img class="img-thumbnail" th:src="${pedido.urlImagem}" src="" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
